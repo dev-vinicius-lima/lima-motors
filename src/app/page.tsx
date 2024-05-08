@@ -1,3 +1,9 @@
+import SubMenu from '@/components/Home/SubMenu'
+
 export default function Home() {
-  return <main></main>
+  return (
+    <main>
+      <SubMenu />
+    </main>
+  )
 }
