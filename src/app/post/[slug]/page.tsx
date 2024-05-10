@@ -5,49 +5,6 @@ import Hero from '@/components/Hero'
 import { Phone } from 'lucide-react'
 import Container from '@/components/Container'
 import Image from 'next/image'
-import { Metadata } from 'next'
-
-export const GenererateMetaData = async ({
-  params: { slug },
-}: {
-  params: { slug: string }
-}): Promise<Metadata> => {
-  try {
-    const { objects }: PostProps = await getItemBySlug(slug).catch(() => {
-      return {
-        title: 'LimaMotors - sua oficina especializada!',
-        description: 'Oficina de carros em Manaus-AM',
-      }
-    })
-    return {
-      title: `LimaMotors - ${objects[0].title}`,
-      description: objects[0].metadata.description.text,
-      openGraph: {
-        images: [`${objects[0].metadata.banner.url}`],
-        siteName: 'LimaMotors',
-        title: 'LimaMotors - sua oficina especializada!',
-        description: 'Oficina de carros em Manaus-AM',
-        url: `${process.env.NEXT_PUBLIC_URL}`,
-        type: 'website',
-      },
-      robots: {
-        index: true,
-        follow: true,
-        nocache: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          noimageindex: true,
-        },
-      },
-    }
-  } catch (error) {
-    return {
-      title: 'LimaMotors - sua oficina especializada!',
-      description: 'Oficina de carros em Manaus-AM',
-    }
-  }
-}
 
 const PageService = async ({
   params: { slug },
