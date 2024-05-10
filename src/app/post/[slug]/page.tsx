@@ -13,7 +13,12 @@ export const GenererateMetaData = async ({
   params: { slug: string }
 }): Promise<Metadata> => {
   try {
-    const { objects }: PostProps = await getItemBySlug(slug)
+    const { objects }: PostProps = await getItemBySlug(slug).catch(() => {
+      return {
+        title: 'LimaMotors - sua oficina especializada!',
+        description: 'Oficina de carros em Manaus-AM',
+      }
+    })
     return {
       title: `LimaMotors - ${objects[0].title}`,
       description: objects[0].metadata.description.text,
