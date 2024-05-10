@@ -15,6 +15,7 @@ const Hero = ({
   buttonUrl,
   icon,
 }: HeroProps) => {
+  console.log(bannerUrl)
   return (
     <main className={styles.main}>
       <div className={styles.containerHero}>
@@ -30,7 +31,9 @@ const Hero = ({
           src={bannerUrl}
           alt={heading}
           quality={100}
+          priority
           fill
+          sizes="(max-width:700px) 100vw, (max-height:1024px) 60vw, 75vh"
           className={styles.banner}
         />
       </div>
