@@ -7,7 +7,7 @@ import Container from '@/components/Container'
 import Image from 'next/image'
 import { Metadata } from 'next'
 
-export const genererateMetaData = async ({
+export const GenererateMetaData = async ({
   params: { slug },
 }: {
   params: { slug: string }
