@@ -15,7 +15,6 @@ const Hero = ({
   buttonUrl,
   icon,
 }: HeroProps) => {
-  console.log(bannerUrl)
   return (
     <main className={styles.main}>
       <div className={styles.containerHero}>

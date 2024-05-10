@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 export const getDataHome = async () => {
   try {
     const response = await fetch(
@@ -48,6 +49,6 @@ export const getItemBySlug = async (ItemSlug: string) => {
     }
     return response.json()
   } catch (error) {
-    throw new Error('Failed to fetch get item by slug')
+    redirect('/')
   }
 }
